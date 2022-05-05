@@ -1,0 +1,44 @@
+CREATE TABLE consutorios (
+  numero int NOT NULL,
+  nombre varchar(50) NOT NULL,
+  PRIMARY KEY (numero)
+);
+
+CREATE TABLE citas (
+  numero int NOT NULL,
+  fecha date NOT NULL,
+  hora int NOT NULL,
+  paciente int NOT NULL,
+  medico varchar(15) NOT NULL,
+  consultorio int NOT NULL,
+  estado varchar(50) NOT NULL,
+  observaciones varchar(1000) NOT NULL,
+  PRIMARY KEY (numero)
+);
+
+CREATE TABLE medicos (
+  identificacion int NOT NULL,
+  nombres varchar(50) NOT NULL,
+  Apellidos varchar(50) NOT NULL,
+  PRIMARY KEY (identificacion)
+);
+
+CREATE TABLE pacientes (
+  identificacion int NOT NULL,
+  nombres varchar(50) NOT NULL,
+  apellidos varchar(50) NOT NULL,
+  fechaNacimineto date NOT NULL,
+  sexo varchar(15) NOT NULL,
+  PRIMARY KEY (identificacion)
+);
+
+CREATE TABLE tratamientos (
+  Numero int NOT NULL,
+  FechaAsignado date NOT NULL,
+  Descripcion varchar(1000) NOT NULL,
+  FechaInicio date NOT NULL,
+  FechaFin int NOT NULL,
+  Observaciones varchar(1000) NOT NULL,
+  Paciente int NOT NULL,
+  PRIMARY KEY (Numero)
+);  
