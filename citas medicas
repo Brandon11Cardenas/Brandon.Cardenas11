@@ -1,0 +1,104 @@
+USE citasMedicas;
+CREATE TABLE consultorios (
+  numero int NOT NULL,
+  nombre varchar(50) NOT NULL,
+  PRIMARY KEY (numero)
+);
+
+INSERT INTO consultorios value 
+(1,	'Leelah'),
+(2,	'alegra'),
+(3,	'Dorree'),
+(4,	'Marcos'),
+(5,	'Eugenio'),
+(6,	'lydie'),
+(7,	'celestyn'),
+(8,	'danyelle'),
+(9,	'floris'),
+(10,	'Ángela');
+
+CREATE TABLE citas (
+  numero int NOT NULL,
+  fecha DATE NOT NULL,
+  hora int NOT NULL,
+  paciente int NOT NULL,
+  medico varchar(50) NOT NULL,
+  consultorio int NOT NULL,
+  estado varchar(50),
+  observaciones varchar(1000),
+  PRIMARY KEY (numero)
+);
+
+INSERT INTO citas(numero, fecha, hora, paciente, medico, consultorio) value
+(1,	'2001-01-05', 2023, 566333289, 'lenci esposa',	  37),
+(2,	'2021-11-09', 2347, 834681558, 'willem gidney',	 73),
+(3,	'2021-09-13', 0623, 356063103, 'lonnard lester',  48),
+(4,	'2022-02-07', 2322, 292350235, 'Peder Ouldred',	  88),
+(5,	'2021-10-12', 1840, 405108194, 'Sibley De Brett', 33),
+(6,	'2022-04-17', 2158, 114278942, 'Kelsey Maryman', 99),
+(7,	'2022-01-18', 1419, 051470423, 'Libbi Wrinch',   76),
+(9,	'2022-05-18', 2346, 027221163, 'Bernad Hupka',   60),
+(10, '2021-12-20', 0113, 604935721, 'Garrett Nions', 44);
+
+CREATE TABLE medicos (
+  identificacion int NOT NULL,
+  nombres varchar(50) NOT NULL,
+  Apellidos varchar(50) NOT NULL,
+  PRIMARY KEY (identificacion)
+);
+
+INSERT INTO medicos value 
+(233554149,	'frazer',	'Cordeau'),
+(718472437,	'Dona',	'Naile'),
+(826038230,	'Almire',	'espina'),
+(933897378,	'Hermano',	'Barcroft'),
+(658632399,	'Kesiah',	'geggie'),
+(074727294,	'Jessalin',	'Cabezazo'),
+(857337790,	'Averil', 'Itshak'),
+(859090625,	'humberto',	'genero'),
+(780366507,	'Cory',	'Yeiles'),
+(427123128,	'Fabien',	'Stollenhof');
+
+CREATE TABLE pacientes (
+  identificacion int NOT NULL,
+  nombres varchar(50) NOT NULL,
+  apellidos varchar(50) NOT NULL,
+  fechaNacimiento date NOT NULL,
+  sexo varchar(15) NOT NULL,
+  PRIMARY KEY (identificacion)
+);
+
+INSERT INTO pacientes value 
+(566333289,	'Shanon',	'Cavee',	'2022-03-14',	'Femenino'),
+(834681558,	'Zara',	'gerrens',	'2021-08-31',	'Femenino'),
+(356063103,	'vera',	'Girkins',	'2021-05-11',	'Femenino'),
+(292350235,	'Jayne',	'espumoso',	'2022-06-23',	'Femenino'),
+(405108194,	'Ervin',	'Harnwell', '2021-06-28',	'Masculino'),
+(114278942,	'Cullie',	'Más pista',	'2022-05-15',	'Masculino'),
+(051470423,	'Arturo',	'Borgne',	'2021-09-25',	'Masculino'),
+(534761338,	'Charis',	'esteticista',	'2022-04-28',	'Femenino'),
+(027221163,	'Elora',	'Iglesiaz',	'2022-04-01',	'Femenino'),
+(604935721,	'Elnore',	'cerrar',	'2021-04-01',	'Femenino');
+
+CREATE TABLE tratamientos (
+  numero int NOT NULL,
+  fechaAsignado DATE NOT NULL,
+  descripcion varchar(1000),
+  fechaInicio DATE NOT NULL,
+  fechaFin DATE NOT NULL,
+  observaciones varchar(1000),
+  paciente int NOT NULL,
+  PRIMARY KEY (numero)
+);  
+
+INSERT INTO tratamientos (numero, fechaAsignado, fechaInicio, fechaFin, paciente) value 
+(1,	'2022-01-16',	'2021-10-09',	'2021-04-24', 566333289),
+(2,	'2022-02-25',	'2021-04-09',	'2021-05-26', 834681558),
+(3,	'2021-07-15',	'2022-03-01',	'2022-04-28', 356063103),
+(4,	'2022-04-12',	'2022-05-03',	'2021-06-29', 292350235),
+(5,	'2022-05-27',	'2021-10-03',	'2022-03-02', 405108194),
+(6,	'2022-04-12',	'2022-01-30',	'2021-04-29', 114278942),
+(7,	'2021-08-26',	'2021-06-30',	'2022-06-28', 051470423),
+(8,	'2021-11-20',	'2021-09-18',	'2021-07-03', 534761338),
+(9,	'2022-05-23',	'2021-06-12',	'2022-03-14', 027221163),
+(10, '2022-01-25',	'2022-04-04',	'2021-07-14', 604935721);
